@@ -12,7 +12,7 @@ import java.net.*;
  * @author elisa
  */
 public class Client {
-    String nomeServer = "nomeServer";
+    String nomeServer = "LocalHost";
     int portaServer = 6789;
     Socket mioSocket;
     BufferedReader tastiera;
@@ -33,6 +33,7 @@ public class Client {
             //associo due oggetti al socket per effettuare la scrittura e la lettura
             outVersoServer = new DataOutputStream(mioSocket.getOutputStream());
             inDalServer = new BufferedReader(new InputStreamReader(mioSocket.getInputStream()));
+            
         } catch (UnknownHostException e) {
             System.err.println("Host sconosciuto");
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class Client {
         return mioSocket;
     }
     
-    public void comunica() throws IOException {
+    public void comunica(){
         try{
         //leggo una riga
         System.out.println("inserisci la stringa da inviare al server: " + '\n');
@@ -59,7 +60,7 @@ public class Client {
         
         //chiudo la connessione
         System.out.println("Termina elaborazione e viene chiusa la connessione");
-        mioSocket.close();
+        //mioSocket.close();
         } catch(Exception e){
             System.out.println(e.getMessage());
             System.out.println("Errore durante la comunicazione con il server");

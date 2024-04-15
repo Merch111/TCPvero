@@ -32,7 +32,7 @@ public class Server {
         client = server.accept();
         
         //chiudo il server
-        server.close();
+        //server.close();
         
         //associo due oggetti al socket del client per effettuare la scrittura e la lettura
         inDalClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -58,6 +58,6 @@ public class Server {
             
             //termina l'elaborazionesul server e chiudo la connessione con il client
             System.out.println("FINE ELABORAZIONE");
-            client.close();
+            //client.close();
     }
 }
